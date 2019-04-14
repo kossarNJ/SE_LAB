@@ -2,7 +2,7 @@ package selab.threetier.logic;
 
 import selab.threetier.storage.Storage;
 
-public abstract class Entity {
+public abstract class Entity implements Comparable {
     private int id;
 
     public int getId() { return id; }

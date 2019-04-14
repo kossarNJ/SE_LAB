@@ -1,7 +1,9 @@
 package selab.threetier.storage;
+
 import selab.threetier.logic.Entity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class EntityStorage<T extends Entity> {
@@ -23,8 +25,15 @@ public class EntityStorage<T extends Entity> {
         return id;
     }
 
+    public boolean remove(int id) {
+        T result = list.remove(id);
+        return result != null;
+    }
+
     public ArrayList<T> getAll() {
-        return new ArrayList<T>(list.values());
+        ArrayList<T> items = new ArrayList<T>(list.values());
+        Collections.sort(items);
+        return items;
     }
 
     public T get(int id) {
